@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/08/Vue/index.html">
 <meta property="og:site_name" content="Lingli">
 <meta property="og:description" content="简介MVVM 是Model-View-ViewModel 的缩写，它是一种基于前端开发的架构模式，其核心是提供对View 和 ViewModel 的双向数据绑定，这使得ViewModel 的状态改变可以自动传递给 View，即所谓的数据双向绑定。 Vue.js 是一个提供了 MVVM 风格的双向数据绑定的 Javascript 库，专注于View 层。它的核心是 MVVM 中的 VM，也就是 Vi">
-<meta property="og:updated_time" content="2017-06-09T11:22:39.000Z">
+<meta property="og:updated_time" content="2017-06-09T11:38:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vue初探">
 <meta name="twitter:description" content="简介MVVM 是Model-View-ViewModel 的缩写，它是一种基于前端开发的架构模式，其核心是提供对View 和 ViewModel 的双向数据绑定，这使得ViewModel 的状态改变可以自动传递给 View，即所谓的数据双向绑定。 Vue.js 是一个提供了 MVVM 风格的双向数据绑定的 Javascript 库，专注于View 层。它的核心是 MVVM 中的 VM，也就是 Vi">
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -214,7 +214,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -284,7 +284,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-08T23:13:28+08:00">
                 2017-06-08
@@ -354,8 +354,8 @@
 <li><code>beforeDestroy</code>：组件销毁前。</li>
 <li><code>destroyed</code>    ：组件销毁后。</li>
 </ul>
-<h2 id="组件模板的定义方式"><a href="#组件模板的定义方式" class="headerlink" title="组件模板的定义方式"></a>组件模板的定义方式</h2><p>在 template 中定义模板，若模板的内容超过一行，需要在外层定义一个div</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">    &lt;my-component&gt;&lt;/my-component&gt;</div><div class="line">    &#123;&#123;msg&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">Vue.component(&apos;my-component&apos;,&#123;</div><div class="line">    template: &apos;&lt;h3&gt;我是组件&lt;/h3&gt;&apos;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">new Vue(&#123;   </div><div class="line">    el: &apos;#app&apos;,</div><div class="line">    data: &#123;</div><div class="line">        msg:&apos;Hello Vue&apos;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="组件模板的定义方式"><a href="#组件模板的定义方式" class="headerlink" title="组件模板的定义方式"></a>组件模板的定义方式</h2><p>在 template 中定义模板，若模板内容超过一行，必须有一个根元素来包裹片段代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//定义的一个组件</div><div class="line">var Home=&#123;  </div><div class="line">    template:&apos;#aaa&apos;</div><div class="line">&#125;; </div><div class="line"></div><div class="line">//定义好组件之后,需要注册</div><div class="line">Vue.component(&apos;my-aaa&apos;,Home); </div><div class="line"></div><div class="line">&lt;template id=&quot;aaa&quot;&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;h3&gt;我是标题&lt;/h3&gt;</div><div class="line">        &lt;strong&gt;我是组件&lt;/strong&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -455,10 +455,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
+            Overview
           </li>
         </ul>
       
@@ -479,7 +479,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -492,7 +492,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">1</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -558,7 +558,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
