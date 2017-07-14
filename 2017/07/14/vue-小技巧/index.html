@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="Lingli">
 <meta property="og:description" content="防止花括号闪烁打开页面有时候会出现 &amp;#123;&amp;#123;msg&amp;#125;&amp;#125; 这种表达式的情况，这是因为 JavaScript 会等DOM加载完成之后，才会去操作相应的DOM元素进行数据渲染。 使用v-text在vue中可以使用 v-text 指令渲染数据，这样可以避免 &amp;#123;&amp;#123; &amp;#125;&amp;#125; 的产生，如果里面包含需要解析的 html 元素，则使用 v-h">
 <meta property="og:image" content="http://ogbav6dbm.bkt.clouddn.com/vue_slot.png">
-<meta property="og:updated_time" content="2017-07-14T13:08:12.000Z">
+<meta property="og:updated_time" content="2017-07-14T13:10:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-小技巧">
 <meta name="twitter:description" content="防止花括号闪烁打开页面有时候会出现 &amp;#123;&amp;#123;msg&amp;#125;&amp;#125; 这种表达式的情况，这是因为 JavaScript 会等DOM加载完成之后，才会去操作相应的DOM元素进行数据渲染。 使用v-text在vue中可以使用 v-text 指令渲染数据，这样可以避免 &amp;#123;&amp;#123; &amp;#125;&amp;#125; 的产生，如果里面包含需要解析的 html 元素，则使用 v-h">
@@ -343,7 +343,7 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;box&quot;&gt;</div><div class="line">    &lt;child&gt;</div><div class="line">        &lt;ul slot=&quot;first&quot;&gt;</div><div class="line">            &lt;li&gt;1111&lt;/li&gt;</div><div class="line">            &lt;li&gt;2222&lt;/li&gt;</div><div class="line">            &lt;li&gt;3333&lt;/li&gt;</div><div class="line">        &lt;/ul&gt;</div><div class="line">        &lt;p slot=&quot;second&quot;&gt;hello&lt;/p&gt;</div><div class="line">    &lt;/child&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">        </div><div class="line">&lt;script&gt;</div><div class="line">var vm=new Vue(&#123;</div><div class="line">    el:&apos;#box&apos;,</div><div class="line">    components:&#123;</div><div class="line">        &apos;child&apos;:&#123;</div><div class="line">            template:`</div><div class="line">                &lt;div&gt;</div><div class="line">                &lt;slot name=&quot;second&quot;&gt;&lt;/slot&gt;</div><div class="line">                &lt;h1&gt;我是子组件&lt;/h1&gt;</div><div class="line">                &lt;slot name=&quot;first&quot;&gt;&lt;/slot&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">                `</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;); </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>页面效果如图所示:</p>
-<p><img src="http://ogbav6dbm.bkt.clouddn.com/vue_slot.png" width="200" alt="CSDN图标" style="border:1px solid #cccccc;text-align:left;"></p>
+<p><img src="http://ogbav6dbm.bkt.clouddn.com/vue_slot.png" width="200" alt="CSDN图标" style="border:1px solid #cccccc;margin-left: 0px;"></p>
 
       
     </div>
