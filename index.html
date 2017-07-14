@@ -254,6 +254,138 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/vue-小技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingli">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/14/vue-小技巧/" itemprop="url">vue-小技巧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T10:28:59+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="防止花括号闪烁"><a href="#防止花括号闪烁" class="headerlink" title="防止花括号闪烁"></a>防止花括号闪烁</h2><p>打开页面有时候会出现 &#123;&#123;msg&#125;&#125; 这种表达式的情况，这是因为 JavaScript 会等DOM加载完成之后，才会去操作相应的DOM元素进行数据渲染。</p>
+<h3 id="使用v-text"><a href="#使用v-text" class="headerlink" title="使用v-text"></a>使用v-text</h3><p>在vue中可以使用 <code>v-text</code> 指令渲染数据，这样可以避免 &#123;&#123; &#125;&#125; 的产生，如果里面包含需要解析的 html 元素，则使用 <code>v-html</code>即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;span v-text=&quot;msg&quot;&gt;&lt;/span&gt;</div><div class="line">&lt;span&gt;&#123;&#123;msg&#125;&#125;&lt;/span&gt;</div></pre></td></tr></table></figure>
+<h3 id="使用v-cloak"><a href="#使用v-cloak" class="headerlink" title="使用v-cloak"></a>使用v-cloak</h3><p><code>v-cloak</code>一般用在大段落中包含大量 &#123;&#123; &#125;&#125;  的div上，这个指令保持在元素上直到关联实例结束编译。和 CSS 规则如 [v-cloak] { display: none } 一起用时，这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[v-cloak] &#123;</div><div class="line">  display: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;div v-cloak&gt;</div><div class="line">  &#123;&#123; msg &#125;&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h2 id="slot插槽"><a href="#slot插槽" class="headerlink" title="slot插槽"></a>slot插槽</h2><p>slot是一个很有用的特性，可以用来向组件内部插入一些内容。slot就是“插槽”的意思，相当先定义好位置，由用户来决定插入的内容，这样就不会直接覆盖原有的内容。</p>
+<p>默认情况下页面只会显示“我是子组件”，而ul里的内容不显示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;box&quot;&gt;</div><div class="line">	&lt;child&gt;</div><div class="line">		&lt;ul&gt;</div><div class="line">			&lt;li&gt;1111&lt;/li&gt;</div><div class="line">			&lt;li&gt;2222&lt;/li&gt;</div><div class="line">			&lt;li&gt;3333&lt;/li&gt;</div><div class="line">		&lt;/ul&gt;</div><div class="line">	&lt;/child&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	var vm=new Vue(&#123;</div><div class="line">		el:&apos;#box&apos;,</div><div class="line">		components:&#123;</div><div class="line">			&apos;child&apos;:&#123;</div><div class="line">				template:&apos;&lt;h1&gt;我是子组件&lt;/h1&gt;&apos;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="匿名slot"><a href="#匿名slot" class="headerlink" title="匿名slot"></a>匿名slot</h3><p>单个slot使用最简单，也是最常用的，父组件在使用的这个组件的时候，想在内部自定义一些初始化数据，这时候就可以用slot实现。</p>
+<p>当child组件内有多个标签也会一起插入到slot的位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;box&quot;&gt;</div><div class="line">	&lt;child&gt;</div><div class="line">		&lt;ul&gt;</div><div class="line">			&lt;li&gt;1111&lt;/li&gt;</div><div class="line">			&lt;li&gt;2222&lt;/li&gt;</div><div class="line">			&lt;li&gt;3333&lt;/li&gt;</div><div class="line">		&lt;/ul&gt;</div><div class="line">	&lt;/child&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">var vm=new Vue(&#123;</div><div class="line">	el:&apos;#box&apos;,</div><div class="line">	components:&#123;</div><div class="line">		&apos;child&apos;:&#123;</div><div class="line">			template:`</div><div class="line">				&lt;div&gt;</div><div class="line">					&lt;slot&gt;&lt;/slot&gt;</div><div class="line">					&lt;h1&gt;我是子组件&lt;/h1&gt;</div><div class="line">				&lt;/div&gt;</div><div class="line">			`</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h3 id="具名slot"><a href="#具名slot" class="headerlink" title="具名slot"></a>具名slot</h3><ul>
+<li>将放在子组件里的不同html标签放在不同的位置</li>
+<li>父组件在要分发的标签里添加 slot=”name名” 属性</li>
+<li>子组件在对应分发的位置的slot标签里，添加name=”name名” 属性，</li>
+<li>然后就会将对应的标签放在对应的位置了。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;box&quot;&gt;</div><div class="line">	&lt;child&gt;</div><div class="line">		&lt;ul slot=&quot;first&quot;&gt;</div><div class="line">			&lt;li&gt;1111&lt;/li&gt;</div><div class="line">			&lt;li&gt;2222&lt;/li&gt;</div><div class="line">			&lt;li&gt;3333&lt;/li&gt;</div><div class="line">		&lt;/ul&gt;</div><div class="line">		&lt;p slot=&quot;second&quot;&gt;hello&lt;/p&gt;</div><div class="line">	&lt;/child&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">	var vm=new Vue(&#123;</div><div class="line">		el:&apos;#box&apos;,</div><div class="line">		components:&#123;</div><div class="line">			&apos;child&apos;:&#123;</div><div class="line">				template:`</div><div class="line">					&lt;div&gt;</div><div class="line">						&lt;slot name=&quot;second&quot;&gt;&lt;/slot&gt;</div><div class="line">						&lt;h1&gt;我是子组件&lt;/h1&gt;</div><div class="line">						&lt;slot name=&quot;first&quot;&gt;&lt;/slot&gt;</div><div class="line">					&lt;/div&gt;</div><div class="line">				`</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>页面效果如图所示</p>
+<p><img src="http://ogbav6dbm.bkt.clouddn.com/vue_slot.png" width="200" alt="CSDN图标" style="border:1px solid #cccccc;"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/30/vue-通信/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -821,7 +953,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
