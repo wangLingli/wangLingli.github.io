@@ -323,7 +323,11 @@
         
           
             <p>最近看了一个用swiper.js做的活动页项目，当滑到第六页点击“了解详情”按钮，可以使用<a href=""></a>指定相应的url跳转到详情页，那么当点击详情页中“返回”按钮，怎么返回到swiper第六页的活动页面呢？</p>
-<h2 id="window-location-hash-介绍"><a href="#window-location-hash-介绍" class="headerlink" title="window.location.hash 介绍"></a>window.location.hash 介绍</h2><h4 id="window-location-href"><a href="#window-location-href" class="headerlink" title="window.location.href"></a>window.location.href</h4><p>location是javascript里边管理地址栏的内置对象,<code>window.location.href</code>可以获取到完整的url，比如window.location.href=”www.babytree.com”表示的是重新定向，页面跳转到新的页面。</p>
+<div style="overflow:hidden;"><br><img src="http://ogbav6dbm.bkt.clouddn.com/hash1.png" style="width:250px;float:left;"><br><br><img src="http://ogbav6dbm.bkt.clouddn.com/hash2.png" style="width:250px;float:right"><br></div>
+
+
+
+<h4 id="window-location-href"><a href="#window-location-href" class="headerlink" title="window.location.href"></a>window.location.href</h4><p>location是javascript里边管理地址栏的内置对象,<code>window.location.href</code>可以获取到完整的url，比如window.location.href=”www.babytree.com”表示的是重新定向，页面跳转到新的页面。</p>
 <h4 id="window-location-hash"><a href="#window-location-hash" class="headerlink" title="window.location.hash"></a>window.location.hash</h4><p>获取的是页面的锚链接，相比如href,通过<code>window.location.hash</code>并不会跳转到新的链接，只会在当前链接里面改变锚链。例如<code>&lt;a href=&quot;www.babytree.com#tool&quot;&gt;</code>通过window.location.hash得不到完整的链接（URL），仅得到 #tool.</p>
 <h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><p>给返回按钮设置带有标签值的a链接，<code>&lt;a href=&quot;/sakykids#referno5&quot;&gt;&lt;/a&gt;</code></p>
 <p>获取页面锚链接：</p>
@@ -331,8 +335,7 @@
 </code></pre><p>获取swiper第几页序号：</p>
 <pre><code>var referno = /referno/.test(hash)?hash.split(&apos;referno&apos;)[1]:0; //5
 </code></pre><p>设定swiper初始化索引：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var mySwiper = $(&apos;.slidercontain&apos;).swiper(&#123;</div><div class="line">	initialSlide:referno,</div><div class="line">	```</div></pre></td></tr></table></figure>
-<p>});<br>```</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var mySwiper = $(&apos;.slidercontain&apos;).swiper(&#123;</div><div class="line">	initialSlide:referno,</div><div class="line">	......</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
           
         
