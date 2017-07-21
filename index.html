@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -211,7 +211,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -254,6 +254,128 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/18/location-hash/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingli">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/18/location-hash/" itemprop="url">location.hash</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-18T22:31:59+08:00">
+                2017-07-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近看了一个用swiper.js做的活动页项目，当滑到第六页点击“了解详情”按钮，可以使用<a href=""></a>指定相应的url跳转到详情页，那么当点击详情页中“返回”按钮，怎么返回到swiper第六页的活动页面呢？</p>
+<h2 id="window-location-hash-介绍"><a href="#window-location-hash-介绍" class="headerlink" title="window.location.hash 介绍"></a>window.location.hash 介绍</h2><h4 id="window-location-href"><a href="#window-location-href" class="headerlink" title="window.location.href"></a>window.location.href</h4><p>location是javascript里边管理地址栏的内置对象,<code>window.location.href</code>可以获取到完整的url，比如window.location.href=”www.babytree.com”表示的是重新定向，页面跳转到新的页面。</p>
+<h4 id="window-location-hash"><a href="#window-location-hash" class="headerlink" title="window.location.hash"></a>window.location.hash</h4><p>获取的是页面的锚链接，相比如href,通过<code>window.location.hash</code>并不会跳转到新的链接，只会在当前链接里面改变锚链。例如<code>&lt;a href=&quot;www.babytree.com#tool&quot;&gt;</code>通过window.location.hash得不到完整的链接（URL），仅得到 #tool.</p>
+<h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><p>给返回按钮设置带有标签值的a链接，<code>&lt;a href=&quot;/sakykids#referno5&quot;&gt;&lt;/a&gt;</code></p>
+<p>获取页面锚链接：</p>
+<pre><code>var hash = window.location.hash;  // #referno5
+</code></pre><p>获取swiper第几页序号：</p>
+<pre><code>var referno = /referno/.test(hash)?hash.split(&apos;referno&apos;)[1]:0; //5
+</code></pre><p>设定swiper初始化索引：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">var mySwiper = $(&apos;.slidercontain&apos;).swiper(&#123;</div><div class="line">	initialSlide:referno,</div><div class="line">	```</div></pre></td></tr></table></figure>
+<p>});<br>```</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/vue-小技巧/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -283,7 +405,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T10:28:59+08:00">
                 2017-07-14
@@ -415,7 +537,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T12:48:59+08:00">
                 2017-06-30
@@ -556,7 +678,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-16T19:27:28+08:00">
                 2017-06-16
@@ -680,7 +802,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-08T23:13:28+08:00">
                 2017-06-08
@@ -826,7 +948,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-08T16:31:54+08:00">
                 2017-06-08
@@ -953,8 +1075,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -966,8 +1088,8 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -1017,7 +1139,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
