@@ -254,6 +254,237 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/01/less/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingli">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/01/less/" itemprop="url">less</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-01T09:31:52+08:00">
+                2017-08-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="LESS-原理及使用方式"><a href="#LESS-原理及使用方式" class="headerlink" title="LESS 原理及使用方式"></a>LESS 原理及使用方式</h2><p>Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。</p>
+<p>本质上，LESS 包含一套自定义的语法及一个解析器，用户根据这些语法定义自己的样式规则，这些规则最终会通过解析器，编译生成对应的 CSS 文件。LESS 并没有裁剪 CSS 原有的特性，更不是用来取代 CSS 的，而是在现有 CSS 语法的基础上，为 CSS 加入程序式语言的特性。</p>
+<h2 id="嵌套规则"><a href="#嵌套规则" class="headerlink" title="嵌套规则"></a>嵌套规则</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ul&#123;</div><div class="line">	li&#123;</div><div class="line">		color:green;</div><div class="line">		div&#123;</div><div class="line">			color: bulue;</div><div class="line">			a&#123;</div><div class="line">				color: red;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ul li &#123;</div><div class="line">  color: green;</div><div class="line">&#125;</div><div class="line">ul li div &#123;</div><div class="line">  color: bulue;</div><div class="line">&#125;</div><div class="line">ul li div a &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>响应式布局：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">@media (max-width: 400px) &#123;</div><div class="line">  div &#123;</div><div class="line">    background-color: green;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@media (min-width: 400px) and (max-width: 800px) &#123;</div><div class="line">  div &#123;</div><div class="line">    background-color: red;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">@media (min-width: 800px) &#123;</div><div class="line">  div &#123;</div><div class="line">    background-color: blue;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">  @media (max-width: 400px) &#123;</div><div class="line">    background-color: green;</div><div class="line">  &#125;</div><div class="line">  @media (min-width: 400px) and (max-width: 800px) &#123;</div><div class="line">    background-color: red;</div><div class="line">  &#125;</div><div class="line">  @media (min-width: 800px) &#123;</div><div class="line">    background-color: blue;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">  // 不会被编译到css文件中</div><div class="line">  /*会编译到css文件中*/</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">div &#123;</div><div class="line">  /*会编译到css文件中*/</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><p>@变量名：值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// base.less</div><div class="line">@background: #ffffff;</div><div class="line">@fontSize: 1rem;</div><div class="line">@color: @base_color;</div><div class="line">@base_color: #333333;</div><div class="line"></div><div class="line">div &#123;</div><div class="line">	background: @background;</div><div class="line">	font-size: @fontSize;</div><div class="line">	color: @color;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">// base.css</div><div class="line">div &#123;</div><div class="line">  background: #ffffff;</div><div class="line">  font-size: 1rem;</div><div class="line">  color: #333333;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>url</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@images: &quot;../img&quot;;</div><div class="line"></div><div class="line">// 用法</div><div class="line">body &#123;</div><div class="line">  color: #444;</div><div class="line">  background: url(&quot;@&#123;images&#125;/white-sand.png&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>加、减、乘、除运算</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@w: 100px;</div><div class="line"></div><div class="line">div &#123;</div><div class="line">	width: @w + 100;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// 输出</div><div class="line">div &#123;</div><div class="line">  width: 200px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="混合（Mixins）"><a href="#混合（Mixins）" class="headerlink" title="混合（Mixins）"></a>混合（Mixins）</h2><p>在 LESS 中我们可以定义一些通用的属性集为一个 class，然后在另一个 class 中去调用这些属性，下面有这样一个 class：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">.bordered &#123;</div><div class="line">    border-top: dotted 1px black;</div><div class="line">    border-bottom: solid 1px black;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.div1 &#123;</div><div class="line">	color: red;</div><div class="line">	.bordered</div><div class="line">&#125;</div><div class="line"></div><div class="line">.div2 &#123;</div><div class="line">	color: blue;</div><div class="line">	.bordered</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编译css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">.div1 &#123;</div><div class="line">  color: red;</div><div class="line">  border-top: dotted 1px #000000;</div><div class="line">  border-bottom: solid 1px #000000;</div><div class="line">&#125;</div><div class="line">.div2 &#123;</div><div class="line">  color: blue;</div><div class="line">  border-top: dotted 1px #000000;</div><div class="line">  border-bottom: solid 1px #000000;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="带参数混合"><a href="#带参数混合" class="headerlink" title="带参数混合"></a>带参数混合</h3><p>可以像函数一样定义一个带参数的样式集合属性。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.border-radius (@radius) &#123;</div><div class="line">    border-radius: @radius;</div><div class="line">    -moz-border-radius: @radius;</div><div class="line">    -webkit-border-radius: @radius;</div><div class="line">&#125;</div><div class="line"></div><div class="line">button &#123;</div><div class="line">	.border-radius(5px);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>指定参数默认值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">.border-radius (@radius:10px) &#123;</div><div class="line">    border-radius: @radius;</div><div class="line">    -moz-border-radius: @radius;</div><div class="line">    -webkit-border-radius: @radius;</div><div class="line">&#125;</div><div class="line"></div><div class="line">button &#123;</div><div class="line">	.border-radius(5px);</div><div class="line">&#125;</div><div class="line"></div><div class="line">div&#123;</div><div class="line">	.border-radius</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>编译为css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">button &#123;</div><div class="line">  border-radius: 5px;</div><div class="line">  -moz-border-radius: 5px;</div><div class="line">  -webkit-border-radius: 5px;</div><div class="line">&#125;</div><div class="line">div &#123;</div><div class="line">  border-radius: 10px;</div><div class="line">  -moz-border-radius: 10px;</div><div class="line">  -webkit-border-radius: 10px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="arguments-变量"><a href="#arguments-变量" class="headerlink" title="@arguments 变量"></a>@arguments 变量</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.box-shadow (@x: 0, @y: 0, @blur: 1px, @color: #000) &#123;</div><div class="line">    box-shadow: @arguments;</div><div class="line">    -moz-box-shadow: @arguments;</div><div class="line">    -webkit-box-shadow: @arguments;</div><div class="line">&#125;</div><div class="line">.box-shadow(2px, 5px);</div></pre></td></tr></table></figure>
+<p>编译为css</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">box-shadow: 2px 5px 1px #000;</div><div class="line">-moz-box-shadow: 2px 5px 1px #000;</div><div class="line">-webkit-box-shadow: 2px 5px 1px #000;</div></pre></td></tr></table></figure>
+<h2 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h2><p>LESS 提供了通过参数值控制 mixin 行为的功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">.triangle (top, @w:5px, @c:#ccc) &#123;</div><div class="line">	border-width: @w;</div><div class="line">	border-color: transparent transparent @c transparent;</div><div class="line">	border-style: dashed dashed solid dashed;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.triangle (bottom, @w:5px, @c:#ccc) &#123;</div><div class="line">	border-width: @w;</div><div class="line">	border-color: @c transparent transparent  transparent;</div><div class="line">	border-style: solid dashed dashed dashed;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.triangle (left, @w:5px, @c:#ccc) &#123;</div><div class="line">	border-width: @w;</div><div class="line">	border-color: transparent @c transparent  transparent;</div><div class="line">	border-style: dashed solid dashed dashed;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.triangle (right, @w:5px, @c:#ccc) &#123;</div><div class="line">	border-width: @w;</div><div class="line">	border-color: transparent  transparent  transparent @c;</div><div class="line">	border-style: dashed dashed dashed solid;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.triangle (@_, @w:5px, @c:#ccc) &#123;</div><div class="line">	width:0;</div><div class="line">	height:0;</div><div class="line">	overflow:hidden;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.sanjiao &#123;</div><div class="line">	.triangle(top, 20px)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出css为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.sanjiao &#123;</div><div class="line">  border-width: 20px;</div><div class="line">  border-color: transparent transparent #cccccc transparent;</div><div class="line">  border-style: dashed dashed solid dashed;</div><div class="line">  width: 0;</div><div class="line">  height: 0;</div><div class="line">  overflow: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="条件混合"><a href="#条件混合" class="headerlink" title="条件混合"></a>条件混合</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@h : 20;  </div><div class="line">@w : 10;  </div><div class="line">  </div><div class="line">.mixin (@h, @w) when (@h &lt; @w)&#123;  </div><div class="line">    width:@h;  </div><div class="line">&#125;  </div><div class="line">.mixin1 (@h, @w) when (@h &gt; @w)&#123;  </div><div class="line">    height:@w;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div &#123;  </div><div class="line">  height: 10;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>检查基本类型的函数：</p>
+<ul>
+<li>iscolor</li>
+<li>isnumber</li>
+<li>isstring</li>
+<li>iskeyword</li>
+<li>isurl</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">.mixin (@a) when (isnumber(@a)) and (@a &gt; 20) &#123; &#125;</div></pre></td></tr></table></figure>
+<h2 id="extend"><a href="#extend" class="headerlink" title="extend"></a>extend</h2><p>如：现在有个默认字体样式类baseStyle，此外有个与baseStyle稍有差别的类specialStyle则使CSS较少的CSS与HTML分别可为：</p>
+<p>CSS</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">.baseStyle &#123;  </div><div class="line">    color: #333333;  </div><div class="line">    font-size: 16px;  </div><div class="line">&#125;  </div><div class="line">.specialStyle &#123;  </div><div class="line">    color: #000000;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>html</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;p class =“baseStyle”&gt;我是默认的段落样式&lt;/ p&gt;  </div><div class="line">&lt;p class =“baseStyle specialStyle”&gt;我是默认样式上加了特殊样式的段落&lt;/ p&gt;</div></pre></td></tr></table></figure>
+<p>而思路相同，却更好的做法是使用较少的继承：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.baseStyle,</div><div class="line">.specialStyle &#123;</div><div class="line">  color: #333333;</div><div class="line">  font-size: 16px;</div><div class="line">&#125;</div><div class="line">.specialStyle &#123;</div><div class="line">  color: #000000;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>效果虽一样，但使用较少将使HTML结构信息更加直观，也更便于日后修改。</p>
+<p>Extend是一个LESS伪类，它通过使用:extend 选择器在一个选择器中扩展其他选择器样式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">h2 &#123;</div><div class="line">  &amp;:extend(.style);</div><div class="line">  font-style: italic;</div><div class="line">&#125;</div><div class="line">.style &#123;</div><div class="line">  background: green;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">nav ul &#123;</div><div class="line">  background: blue;</div><div class="line">&#125;</div><div class="line">.inline, nav ul &#123;</div><div class="line">  color: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="继承嵌套选择器"><a href="#继承嵌套选择器" class="headerlink" title="继承嵌套选择器"></a>继承嵌套选择器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.parentClass&#123;  </div><div class="line">    span&#123;  </div><div class="line">        color:red  </div><div class="line">    &#125;  </div><div class="line">&#125;  </div><div class="line">.subClassOne&#123;  </div><div class="line">    &amp;:extend(.parentClass span);  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.parentClass span,  </div><div class="line">.subClassOne &#123;  </div><div class="line">  color: red;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用extend重写样式"><a href="#使用extend重写样式" class="headerlink" title="使用extend重写样式:"></a>使用extend重写样式:</h3><p>在开发中我们会定义一些通用样式，然后单独样式在添加class，使用css的后面覆盖前面的原理来实现样式。extend也可以实现这种效果，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.animal &#123;</div><div class="line">  background-color: black;</div><div class="line">  color: white;</div><div class="line">&#125;</div><div class="line">.bear &#123;</div><div class="line">  &amp;:extend(.animal);</div><div class="line">  background-color: brown;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.animal,</div><div class="line">.bear &#123;</div><div class="line">  background-color: black;</div><div class="line">  color: white;</div><div class="line">&#125;</div><div class="line">.bear &#123;</div><div class="line">  background-color: brown;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="减少css代码"><a href="#减少css代码" class="headerlink" title="减少css代码"></a>减少css代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">.my-inline-block() &#123;</div><div class="line">    display: inline-block;</div><div class="line">  font-size: 0;</div><div class="line">&#125;</div><div class="line">.thing1 &#123;</div><div class="line">  .my-inline-block;</div><div class="line">&#125;</div><div class="line">.thing2 &#123;</div><div class="line">  .my-inline-block;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//编译后：</div><div class="line">.thing1 &#123;</div><div class="line">  display: inline-block;</div><div class="line">  font-size: 0;</div><div class="line">&#125;</div><div class="line">.thing2 &#123;</div><div class="line">  display: inline-block;</div><div class="line">  font-size: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用extend</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">.my-inline-block &#123;</div><div class="line">  display: inline-block;</div><div class="line">  font-size: 0;</div><div class="line">&#125;</div><div class="line">.thing1 &#123;</div><div class="line">  &amp;:extend(.my-inline-block);</div><div class="line">&#125;</div><div class="line">.thing2 &#123;</div><div class="line">  &amp;:extend(.my-inline-block);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//编译后：</div><div class="line">.my-inline-block,</div><div class="line">.thing1,</div><div class="line">.thing2 &#123;</div><div class="line">  display: inline-block;</div><div class="line">  font-size: 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="避免编译"><a href="#避免编译" class="headerlink" title="避免编译"></a>避免编译</h2><p>有时候我们需要输出一些不正确的css语法或者使用一些 less 不认识的专有语法，需要在输出的值前加 <code>~</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">div&#123;</div><div class="line">	width: ~&apos;calc(100% - 20px)&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>lighten(@color, 10%); // 亮度增加 10%</li>
+<li>darken(@color, 10%); // 亮度降低 10%</li>
+</ul>
+<h2 id="less与sass的区别"><a href="#less与sass的区别" class="headerlink" title="less与sass的区别"></a>less与sass的区别</h2><h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><p>sass支持不包含花括号与分号的编写风格，仅通过缩进表示嵌套,less不支持。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">h1</div><div class="line">  color: #000</div></pre></td></tr></table></figure>
+<h3 id="变量-1"><a href="#变量-1" class="headerlink" title="变量"></a>变量</h3><p>LESS使用@，而Sass使用$。</p>
+<h3 id="条件语句和控制"><a href="#条件语句和控制" class="headerlink" title="条件语句和控制"></a>条件语句和控制</h3><p>这是一个很强大的功能，也是LESS不支持的功能。使用Sass，你可以使用if{}else{}这样的条件语句，以及for{}循环语句</p>
+<h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><p>less有局部变量和全局变量的概念，查找变量的顺序是先在局部定义中找，如果找不到，则查找上级定义，直至全局</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Less-作用域</div><div class="line">@color: #00c; /* 蓝色 */</div><div class="line">#header &#123;</div><div class="line">  @color: #c00; /* red */</div><div class="line">  border: 1px solid @color; /* 红色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">#footer &#123;</div><div class="line">  border: 1px solid @color; /* 蓝色边框 */</div><div class="line">&#125;</div><div class="line"></div><div class="line">Less-作用域编译后</div><div class="line">#header&#123;border:1px solid #cc0000;&#125;</div><div class="line">#footer&#123;border:1px solid #0000cc;&#125;</div></pre></td></tr></table></figure>
+<p>sass无全局变量的概念，后定义的同名变量会完全覆盖先定义的变量</p>
+<pre><code>scss-作用域
+$color: #00c; /* 蓝色 */
+
+#header {
+
+  $color: #c00; /* red */
+  border: 1px solid $color; /* 红色边框 */
+}
+
+#footer {
+  border: 1px solid $color; /* 蓝色边框 */
+}
+
+Sass-作用域编译后
+
+#header{border:1px solid #c00}
+#footer{border:1px solid #c00}
+</code></pre><h3 id="输出设置"><a href="#输出设置" class="headerlink" title="输出设置"></a>输出设置</h3><p>Less没有输出设置，Sass提供4中输出选项：nested, compact, compressed 和 expanded。</p>
+<p>输出样式的风格可以有四种选择，默认为nested</p>
+<ul>
+<li>nested：嵌套缩进的css代码</li>
+<li>expanded：展开的多行css代码</li>
+<li>compact：简洁格式的css代码</li>
+<li>compressed：压缩后的css代码</li>
+</ul>
+<h3 id="混合（Mixins）-1"><a href="#混合（Mixins）-1" class="headerlink" title="混合（Mixins）"></a>混合（Mixins）</h3><p>less 可以无需特别声明，直接调用某一class或id选择器名即可重用该选择器内属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/*声明混合*/</div><div class="line">.setColor(@mainC:#000)&#123;</div><div class="line">  color:@mainC;</div><div class="line">&#125;</div><div class="line">/*直接以默认值调用混合*/</div><div class="line">.sBox&#123;</div><div class="line">  .setColor();</div><div class="line">&#125;</div><div class="line">/*调用混合且传入自定义参数值*/</div><div class="line">.bBox&#123;</div><div class="line">  .setColor(#fff);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>sass 定义混合需要以“@mixin”开头。引用混合需要以“@include” 开头</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">/*声明混合*/</div><div class="line">@mixin setColor($mainC:#000)&#123;</div><div class="line">  color:$mainC;</div><div class="line">&#125;</div><div class="line">/*直接以默认值调用混合*/</div><div class="line">.sBox&#123;</div><div class="line">  @include setColor();</div><div class="line">&#125;</div><div class="line">/*调用混合且传入自定义参数值*/</div><div class="line">.bBox&#123;</div><div class="line">  @include setColor(#fff);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h3><p>less 使用关键字“when”实现条件语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@type: link;</div><div class="line">.mixin(@type) when ( @type == link )&#123;</div><div class="line">  color:blue;</div><div class="line">&#125; </div><div class="line">.mixin(@type) when not ( @type == link )&#123;</div><div class="line">  color:black;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>sass 可以使用@if、@else、@else if语句实现判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$type: link;</div><div class="line">p &#123;</div><div class="line">  @if $type == link &#123;</div><div class="line">    color: blue;</div><div class="line">  &#125; </div><div class="line">@else &#123;</div><div class="line">    color: black;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/*编译后的CSS*/</div><div class="line">p &#123;color:blue;&#125;</div></pre></td></tr></table></figure>
+<h3 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h3><p>less 通过when模拟循环功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">.funClass (@i) when (@i&gt;0)&#123;</div><div class="line">  .item-@&#123;i&#125;&#123;</div><div class="line">    width:2em*@i;</div><div class="line">&#125;</div><div class="line">/*递归*/</div><div class="line">.funClass(@i-1);</div><div class="line">&#125;</div><div class="line">/*停止循环*/</div><div class="line">.funClass (0) &#123;&#125;</div><div class="line"></div><div class="line">/*输出*/</div><div class="line">.funClass (3);</div></pre></td></tr></table></figure>
+<p>sass 使用@for关键字，配合“from”和“through”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@for &amp;i from 1 through 3&#123;</div><div class="line">  .item-#&#123;$i&#125; &#123;</div><div class="line">    width:2em*$i;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">/*编译后的CSS*/</div><div class="line">.item-1&#123;</div><div class="line">  width:2em;</div><div class="line">&#125;</div><div class="line">.item-2&#123;</div><div class="line">  width:4em;</div><div class="line">&#125;</div><div class="line">.item-3&#123;</div><div class="line">  width:6em;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/28/ES6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1244,7 +1475,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -1257,7 +1488,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">Tags</span>
               
             </div>
