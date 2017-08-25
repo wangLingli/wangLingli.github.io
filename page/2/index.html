@@ -254,6 +254,276 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/vue-router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingli">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/16/vue-router/" itemprop="url">vue-路由</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-16T19:27:28+08:00">
+                2017-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h2><p>vue-router是Vue.js官方的路由插件，它和vue.js是深度集成的，适合用于构建单页面应用。vue的单页面应用是基于路由和组件的，路由用于设定访问路径，并将路径和组件映射起来。传统的页面应用，是用一些超链接来实现页面切换和跳转的。在vue-router单页面应用中，则是路径之间的切换，也就是组件的切换。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h4 id="引入vue-router-js"><a href="#引入vue-router-js" class="headerlink" title="引入vue-router.js"></a>引入vue-router.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;vue-router.min.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="页面布局"><a href="#页面布局" class="headerlink" title="页面布局"></a>页面布局</h4><p><code>&lt;router-link&gt;</code> 会被渲染为 <code>&lt;a&gt;</code> 标签， <code>to</code> 会被渲染为 <code>href</code>，当 <code>&lt;router-link&gt;</code> 被点击的时候，url 会发生相应的改变</p>
+<p><code>&lt;router-view&gt;</code> 是用来渲染通过路由映射过来的组件，当路径更改，<code>&lt;router-view&gt;</code> 中的内容也会发生更改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;box&quot;&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;router-link to=&quot;/home&quot;&gt;主页&lt;/router-link&gt;</div><div class="line">        &lt;router-link to=&quot;/news&quot;&gt;新闻&lt;/router-link&gt;</div><div class="line">        &lt;router-link to=&quot;/about&quot;&gt;关于&lt;/router-link&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h4 id="创建路由组件"><a href="#创建路由组件" class="headerlink" title="创建路由组件"></a>创建路由组件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var Home=&#123;</div><div class="line">    template:&apos;&lt;h3&gt;主页&lt;/h3&gt;&apos;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var News=&#123;</div><div class="line">    template:&apos;&lt;h3&gt;新闻&lt;/h3&gt;&apos;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var About=&#123;</div><div class="line">    template:&apos;&lt;h3&gt;关于&lt;/h3&gt;&apos;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="配置路由"><a href="#配置路由" class="headerlink" title="配置路由"></a>配置路由</h4><p>在创建的 routes 对象中， path 配置了路由的路径，component 配置了映射的组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const routes=[</div><div class="line">    &#123;path:&apos;/home&apos;, componet:Home&#125;,</div><div class="line">    &#123;path:&apos;/news&apos;, componet:News&#125;,</div><div class="line">    &#123;path:&apos;/news&apos;, componet:About&#125;</div><div class="line">    </div><div class="line">    //重定向  在页面一加载的时候，就会将home组件显示出来，因为重定向指向了home组件，redirect的指向与path的必须一致</div><div class="line">    &#123;path:&apos;*&apos;, redirect:&apos;/home&apos;&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<h4 id="生成路由实例"><a href="#生成路由实例" class="headerlink" title="生成路由实例"></a>生成路由实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const router=new VueRouter(&#123;</div><div class="line">    routes</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="最后挂载路由到vue上"><a href="#最后挂载路由到vue上" class="headerlink" title="最后挂载路由到vue上"></a>最后挂载路由到vue上</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">    router,</div><div class="line">    el:&apos;#box&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var User=&#123;</div><div class="line">    template:</div><div class="line">        `&lt;div&gt;</div><div class="line">            &lt;h3&gt;我是用户信息&lt;/h3&gt;</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;&lt;router-link to=&quot;/user/userA&quot;&gt;Strive&lt;/router-link&gt;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&lt;router-link to=&quot;/user/userB&quot;&gt;Blue&lt;/router-link&gt;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&lt;router-link to=&quot;/user/userC&quot;&gt;Eric&lt;/router-link&gt;&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/div&gt;`</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="配置路由-1"><a href="#配置路由-1" class="headerlink" title="配置路由"></a>配置路由</h4><p>比如在用户目录有若干个用户，点击跳转到相应的用户，这时就需要用到路由的嵌套。在首先需要定义一个父级路由 user ,然后在 children 中配置子路由。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">const routes=[</div><div class="line">    &#123;</div><div class="line">        path:&apos;/user&apos;,</div><div class="line">        component:User,</div><div class="line">        children:[</div><div class="line">            &#123;path:&apos;:username/age/:age&apos;, component:UserDetail&#125;</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">];</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/Vue/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingli">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/08/Vue/" itemprop="url">Vue初探</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-08T23:13:28+08:00">
+                2017-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MVVM 是Model-View-ViewModel 的缩写，它是一种基于前端开发的架构模式，其核心是提供对View 和 ViewModel 的双向数据绑定，这使得ViewModel 的状态改变可以自动传递给 View，即所谓的数据双向绑定。</p>
+<p>Vue.js 是一个提供了 MVVM 风格的双向数据绑定的 Javascript 库，专注于View 层。它的核心是 MVVM 中的 VM，也就是 ViewModel。 ViewModel负责连接 View 和 Model，保证视图和数据的一致性，这种轻量级的架构让前端开发更加高效、便捷。  （官网地址：<a href="https://cn.vuejs.org/" target="_blank" rel="external">https://cn.vuejs.org/</a>）</p>
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p>html:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!-- View --&gt;</div><div class="line">&lt;div id=&quot;app&quot;&gt;</div><div class="line">	&lt;div&gt;&#123;&#123;message&#125;&#125;&lt;/div&gt;</div><div class="line">	&lt;input type=&quot;text&quot; v-model=&quot;message&quot;&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>js:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">//Model</div><div class="line">var exampleData = &#123;</div><div class="line">    message: &apos;Hello Vue!&apos;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//ViewModel</div><div class="line">var app = new Vue(&#123;</div><div class="line">    el: &apos;#app&apos;,</div><div class="line">    data: exampleData</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><ul>
+<li><code>v-for</code>： 循环指令，基于一个数组渲染一个列表，与JavaScript遍历类似，需要以 item in items 形式的特殊语法。</li>
+</ul>
+<p>获取index索引：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;ul id=&quot;example-2&quot;&gt;</div><div class="line">  &lt;li v-for=&quot;(item, index) in items&quot;&gt;</div><div class="line">    &#123;&#123; parentMessage &#125;&#125; - &#123;&#123; index &#125;&#125; - &#123;&#123; item.message &#125;&#125;</div><div class="line">  &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p><code>v-show</code>：也是条件渲染指令，和 v-if 指令不同的是，使用 v-show 指令的元素始终会被渲染到HTML，v-show 只是简单的把元素的 csss属性改为 “display:none”。</p>
+</li>
+<li><p><code>v-html</code>：与v-show不同的是会将数据中的 html 解析出来。</p>
+</li>
+<li><p><code>v-if</code>：根据表达式的值的真假条件渲染元素。</p>
+</li>
+<li><p><code>v-else</code>：条件渲染，v-else 元素必须紧跟在 v-if 或者 v-else-if 元素的后面——否则它将不会被识别。</p>
+</li>
+<li><p><code>v-bind</code>：可以在其名称后面带一个参数，中间放一个冒号隔开，这个参数通常是HTML元素的特性（attribute），例如：v-bind:class</p>
+</li>
+</ul>
+<h2 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h2><ul>
+<li><code>beforeCreate</code> ：组件实例刚刚被创建,属性都没有绑定。</li>
+<li><code>created</code>        ：实例已经创建完成，属性已经绑定。</li>
+<li><code>beforeMount</code>    ：模板编译之前。</li>
+<li><code>mounted</code>       ：模板编译之后。</li>
+<li><code>beforeUpdate</code>    ：组件更新之前。</li>
+<li><code>updated</code>        ：组件更新完毕。</li>
+<li><code>beforeDestroy</code>：组件销毁前。</li>
+<li><code>destroyed</code>    ：组件销毁后。</li>
+</ul>
+<h2 id="组件模板的定义方式"><a href="#组件模板的定义方式" class="headerlink" title="组件模板的定义方式"></a>组件模板的定义方式</h2><p>在 template 中定义模板，若模板内容超过一行，必须有一个根元素来包裹片段代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//定义的一个组件</div><div class="line">var Home=&#123;  </div><div class="line">    template:&apos;#aaa&apos;</div><div class="line">&#125;; </div><div class="line"></div><div class="line">//定义好组件之后,需要注册</div><div class="line">Vue.component(&apos;my-aaa&apos;,Home); </div><div class="line"></div><div class="line">&lt;template id=&quot;aaa&quot;&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;h3&gt;我是标题&lt;/h3&gt;</div><div class="line">        &lt;strong&gt;我是组件&lt;/strong&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -414,7 +684,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -427,7 +697,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
