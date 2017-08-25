@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="pushState、popstate," />
+  <meta name="keywords" content="动画小记," />
 
 
 
@@ -93,17 +93,21 @@
 
 
 
-<meta name="description" content="介绍html5引入了history.pushState()和history.replaceState()这两个方法可以存储当前历史记录点、替换当前历史记录点，实现页面无刷新改变当前url。Ajax可以实现页面的无刷新操作，但是无法前进与后退，使用pushState往浏览器history中添加一个地址 pushStatepushState 是人工插入历史记录和修改地址栏,此时地址栏虽然修改,但并不触">
-<meta name="keywords" content="pushState、popstate">
+<meta name="description" content="这次做达人动画主要是用 swiper 做每一页动画之间的切换，其中有一个需求是滑动到page05时如果没有选择“改变”或者是“不改变”,锁定这一页使得无法向下切换到下一页。如果点击“改变”按钮则直接切换到第七页，解除锁定。如果点击“不改变”，切换到下一页（page06），并且锁定该页，点击第六页的“改变”按钮切换到第七页并解除锁定。 改变状态页（page05）  不改变 (page06)  改变">
+<meta name="keywords" content="动画小记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pushState">
-<meta property="og:url" content="http://yoursite.com/2017/08/18/pushState/index.html">
+<meta property="og:title" content="swiper动画">
+<meta property="og:url" content="http://yoursite.com/2017/08/25/swiper动画/index.html">
 <meta property="og:site_name" content="Lingli">
-<meta property="og:description" content="介绍html5引入了history.pushState()和history.replaceState()这两个方法可以存储当前历史记录点、替换当前历史记录点，实现页面无刷新改变当前url。Ajax可以实现页面的无刷新操作，但是无法前进与后退，使用pushState往浏览器history中添加一个地址 pushStatepushState 是人工插入历史记录和修改地址栏,此时地址栏虽然修改,但并不触">
-<meta property="og:updated_time" content="2017-08-18T14:54:23.000Z">
+<meta property="og:description" content="这次做达人动画主要是用 swiper 做每一页动画之间的切换，其中有一个需求是滑动到page05时如果没有选择“改变”或者是“不改变”,锁定这一页使得无法向下切换到下一页。如果点击“改变”按钮则直接切换到第七页，解除锁定。如果点击“不改变”，切换到下一页（page06），并且锁定该页，点击第六页的“改变”按钮切换到第七页并解除锁定。 改变状态页（page05）  不改变 (page06)  改变">
+<meta property="og:image" content="http://ogbav6dbm.bkt.clouddn.com/animate1.jpg">
+<meta property="og:image" content="http://ogbav6dbm.bkt.clouddn.com/animate2.jpg">
+<meta property="og:image" content="http://ogbav6dbm.bkt.clouddn.com/animate3.jpg">
+<meta property="og:updated_time" content="2017-08-25T11:34:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pushState">
-<meta name="twitter:description" content="介绍html5引入了history.pushState()和history.replaceState()这两个方法可以存储当前历史记录点、替换当前历史记录点，实现页面无刷新改变当前url。Ajax可以实现页面的无刷新操作，但是无法前进与后退，使用pushState往浏览器history中添加一个地址 pushStatepushState 是人工插入历史记录和修改地址栏,此时地址栏虽然修改,但并不触">
+<meta name="twitter:title" content="swiper动画">
+<meta name="twitter:description" content="这次做达人动画主要是用 swiper 做每一页动画之间的切换，其中有一个需求是滑动到page05时如果没有选择“改变”或者是“不改变”,锁定这一页使得无法向下切换到下一页。如果点击“改变”按钮则直接切换到第七页，解除锁定。如果点击“不改变”，切换到下一页（page06），并且锁定该页，点击第六页的“改变”按钮切换到第七页并解除锁定。 改变状态页（page05）  不改变 (page06)  改变">
+<meta name="twitter:image" content="http://ogbav6dbm.bkt.clouddn.com/animate1.jpg">
 
 
 
@@ -131,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/08/18/pushState/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/25/swiper动画/"/>
 
 
 
 
 
-  <title>pushState | Lingli</title>
+  <title>swiper动画 | Lingli</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -257,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/pushState/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/25/swiper动画/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -274,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">pushState</h1>
+          <h1 class="post-title" itemprop="name headline">swiper动画</h1>
         
 
         <div class="post-meta">
@@ -286,8 +290,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T12:48:50+08:00">
-                2017-08-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-25T12:06:12+08:00">
+                2017-08-25
               </time>
             
 
@@ -321,9 +325,24 @@
       
 
       
-        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>html5引入了history.pushState()和history.replaceState()这两个方法可以存储当前历史记录点、替换当前历史记录点，实现页面无刷新改变当前url。Ajax可以实现页面的无刷新操作，但是无法前进与后退，使用pushState往浏览器history中添加一个地址</p>
-<h2 id="pushState"><a href="#pushState" class="headerlink" title="pushState"></a>pushState</h2><p>pushState 是人工插入历史记录和修改地址栏,此时地址栏虽然修改,但并不触发网页跳转。存储的方式类似于数组的入栈（Array.push()），在window.history里新增一个历史记录点，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> // 当前的url为：http://qianduanblog.com/index.html</div><div class="line">var json=&#123;time:new Date().getTime()&#125;;</div><div class="line"> // @状态对象：记录历史记录点的额外对象，可以为空</div><div class="line">// @页面标题：目前所有浏览器都不支持</div><div class="line"> // @可选的url：浏览器不会检查url是否存在，只改变url，url必须同域，不能跨域</div><div class="line">window.history.pushState(json,&quot;&quot;,&quot;http://qianduanblog.com/post-1.html&quot;);</div></pre></td></tr></table></figure>
+        <p>这次做达人动画主要是用 <code>swiper</code> 做每一页动画之间的切换，其中有一个需求是滑动到<code>page05</code>时如果没有选择“改变”或者是“不改变”,锁定这一页使得无法向下切换到下一页。如果点击“改变”按钮则直接切换到第七页，解除锁定。如果点击“不改变”，切换到下一页（page06），并且锁定该页，点击第六页的“改变”按钮切换到第七页并解除锁定。</p>
+<p>改变状态页（page05）</p>
+<p><img style="margin-left: 0;" src="http://ogbav6dbm.bkt.clouddn.com/animate1.jpg" width="300" alt="CSDN图标"></p>
+<p>不改变 (page06)</p>
+<p><img style="margin-left: 0;" src="http://ogbav6dbm.bkt.clouddn.com/animate2.jpg" width="300" alt="CSDN图标"></p>
+<p>改变 (page07)</p>
+<p><img style="margin-left: 0;" src="http://ogbav6dbm.bkt.clouddn.com/animate3.jpg" width="300" alt="CSDN图标"></p>
+<p>添加<code>page06</code>的class为 <code>no</code>,<code>page07</code>及以后改变动画的设置为<code>yes</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;swiper-container&quot;&gt;</div><div class="line">  &lt;div class=&quot;swiper-wrapper&quot;&gt;</div><div class="line">  ...</div><div class="line">    &lt;div class=&quot;swiper-slide&quot;&gt;page05&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;swiper-slide no&quot;&gt;page06&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;swiper-slide yes&quot;&gt;page07&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;swiper-slide yes&quot;&gt;page08&lt;/div&gt;</div><div class="line">  ...</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><code>onSlideChangeStart</code>: swiper从当前slide开始过渡到另一个slide时执行。<br><code>swiper.activeIndex</code>: 返回当前活动块(激活块)的索引。<br><code>swiper.lockSwipeToNext()</code>: 锁定Swiper的向下滑动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var swiper = new Swiper(&apos;.swiper-container&apos;, &#123;</div><div class="line">...</div><div class="line">onSlideChangeStart: function(swiper)&#123;</div><div class="line">		// 设置滑动到page05和page06时无法向下滑动</div><div class="line">		if(swiper.activeIndex==5 || (swiper.activeIndex==6 &amp;&amp;  $(&quot;.slide06&quot;).css(&quot;display&quot;)!= &quot;none&quot; )) &#123;</div><div class="line">            swiper.lockSwipeToNext();</div><div class="line">        &#125; else &#123;</div><div class="line">            swiper.unlockSwipeToNext();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>点击<code>page05</code>的<code>改变</code>按钮:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#change&quot;).click(function()&#123;</div><div class="line">	 $(&quot;.swiper-wrapper .no&quot;).hide(); //将page06隐藏</div><div class="line">    swiper.update();  //更新swiper</div><div class="line">    swiper.slideNext(); //切换下一页（page07）</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>点击<code>page05</code>的<code>不改变</code>按钮:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#refuse&quot;).click(function()&#123;</div><div class="line">    $(&quot;.swiper-wrapper .no&quot;).show(); //显示page06</div><div class="line">    swiper.update(); //更新swiper</div><div class="line">    swiper.slideNext(); //切换下一页（page06)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>点击<code>page06</code>的改变按钮:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#tochange&quot;).click(function()&#123;</div><div class="line">    $(&quot;.swiper-wrapper .yes&quot;).show(); //page07及以后的动画显示</div><div class="line">    swiper.update() //更新swiper</div><div class="line">    swiper.slideNext(); //切换下一页（page07)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
       
     </div>
 
@@ -352,7 +371,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/pushState、popstate/" rel="tag"># pushState、popstate</a>
+            <a href="/tags/动画小记/" rel="tag"># 动画小记</a>
           
         </div>
       
@@ -365,8 +384,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/11/帧动画/" rel="next" title="帧动画">
-                <i class="fa fa-chevron-left"></i> 帧动画
+              <a href="/2017/08/18/pushState/" rel="next" title="pushState">
+                <i class="fa fa-chevron-left"></i> pushState
               </a>
             
           </div>
@@ -374,10 +393,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/25/swiper动画/" rel="prev" title="swiper动画">
-                swiper动画 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -424,17 +439,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -487,22 +493,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pushState"><span class="nav-number">2.</span> <span class="nav-text">pushState</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
