@@ -254,117 +254,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/pushState-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lingli">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/18/pushState-1/" itemprop="url">pushState</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T22:32:12+08:00">
-                2017-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/pushState/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1647,6 +1536,130 @@ Sass-作用域编译后
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/16/vue-router/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingli">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/16/vue-router/" itemprop="url">vue-路由</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-16T19:27:28+08:00">
+                2017-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h2><p>vue-router是Vue.js官方的路由插件，它和vue.js是深度集成的，适合用于构建单页面应用。vue的单页面应用是基于路由和组件的，路由用于设定访问路径，并将路径和组件映射起来。传统的页面应用，是用一些超链接来实现页面切换和跳转的。在vue-router单页面应用中，则是路径之间的切换，也就是组件的切换。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h4 id="引入vue-router-js"><a href="#引入vue-router-js" class="headerlink" title="引入vue-router.js"></a>引入vue-router.js</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;vue-router.min.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h4 id="页面布局"><a href="#页面布局" class="headerlink" title="页面布局"></a>页面布局</h4><p><code>&lt;router-link&gt;</code> 会被渲染为 <code>&lt;a&gt;</code> 标签， <code>to</code> 会被渲染为 <code>href</code>，当 <code>&lt;router-link&gt;</code> 被点击的时候，url 会发生相应的改变</p>
+<p><code>&lt;router-view&gt;</code> 是用来渲染通过路由映射过来的组件，当路径更改，<code>&lt;router-view&gt;</code> 中的内容也会发生更改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=&quot;box&quot;&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;router-link to=&quot;/home&quot;&gt;主页&lt;/router-link&gt;</div><div class="line">        &lt;router-link to=&quot;/news&quot;&gt;新闻&lt;/router-link&gt;</div><div class="line">        &lt;router-link to=&quot;/about&quot;&gt;关于&lt;/router-link&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h4 id="创建路由组件"><a href="#创建路由组件" class="headerlink" title="创建路由组件"></a>创建路由组件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var Home=&#123;</div><div class="line">    template:&apos;&lt;h3&gt;主页&lt;/h3&gt;&apos;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var News=&#123;</div><div class="line">    template:&apos;&lt;h3&gt;新闻&lt;/h3&gt;&apos;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">var About=&#123;</div><div class="line">    template:&apos;&lt;h3&gt;关于&lt;/h3&gt;&apos;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="配置路由"><a href="#配置路由" class="headerlink" title="配置路由"></a>配置路由</h4><p>在创建的 routes 对象中， path 配置了路由的路径，component 配置了映射的组件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">const routes=[</div><div class="line">    &#123;path:&apos;/home&apos;, componet:Home&#125;,</div><div class="line">    &#123;path:&apos;/news&apos;, componet:News&#125;,</div><div class="line">    &#123;path:&apos;/news&apos;, componet:About&#125;</div><div class="line">    </div><div class="line">    //重定向  在页面一加载的时候，就会将home组件显示出来，因为重定向指向了home组件，redirect的指向与path的必须一致</div><div class="line">    &#123;path:&apos;*&apos;, redirect:&apos;/home&apos;&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<h4 id="生成路由实例"><a href="#生成路由实例" class="headerlink" title="生成路由实例"></a>生成路由实例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">const router=new VueRouter(&#123;</div><div class="line">    routes</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="最后挂载路由到vue上"><a href="#最后挂载路由到vue上" class="headerlink" title="最后挂载路由到vue上"></a>最后挂载路由到vue上</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">new Vue(&#123;</div><div class="line">    router,</div><div class="line">    el:&apos;#box&apos;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="路由嵌套"><a href="#路由嵌套" class="headerlink" title="路由嵌套"></a>路由嵌套</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">var User=&#123;</div><div class="line">    template:</div><div class="line">        `&lt;div&gt;</div><div class="line">            &lt;h3&gt;我是用户信息&lt;/h3&gt;</div><div class="line">            &lt;ul&gt;</div><div class="line">                &lt;li&gt;&lt;router-link to=&quot;/user/userA&quot;&gt;Strive&lt;/router-link&gt;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&lt;router-link to=&quot;/user/userB&quot;&gt;Blue&lt;/router-link&gt;&lt;/li&gt;</div><div class="line">                &lt;li&gt;&lt;router-link to=&quot;/user/userC&quot;&gt;Eric&lt;/router-link&gt;&lt;/li&gt;</div><div class="line">            &lt;/ul&gt;</div><div class="line">            &lt;div&gt;</div><div class="line">                &lt;router-view&gt;&lt;/router-view&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/div&gt;`</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h4 id="配置路由-1"><a href="#配置路由-1" class="headerlink" title="配置路由"></a>配置路由</h4><p>比如在用户目录有若干个用户，点击跳转到相应的用户，这时就需要用到路由的嵌套。在首先需要定义一个父级路由 user ,然后在 children 中配置子路由。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">const routes=[</div><div class="line">    &#123;</div><div class="line">        path:&apos;/user&apos;,</div><div class="line">        component:User,</div><div class="line">        children:[</div><div class="line">            &#123;path:&apos;:username/age/:age&apos;, component:UserDetail&#125;</div><div class="line">        ]</div><div class="line">    &#125;,</div><div class="line">];</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1696,7 +1709,7 @@ Sass-作用域编译后
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
