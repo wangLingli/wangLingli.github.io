@@ -365,134 +365,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/swiper动画/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lingli">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/18/swiper动画/" itemprop="url">swiper动画</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T22:06:12+08:00">
-                2017-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这次做达人动画主要是用 <code>swiper</code> 做每一页动画之间的切换，其中有一个需求是滑动到<code>page05</code>时如果没有选择“改变”或者是“不改变”,锁定这一页使得无法向下切换到下一页。如果点击“改变”按钮则直接切换到第七页，解除锁定。如果点击“不改变”，切换到下一页（page06），并且锁定该页，点击第六页的“改变”按钮切换到第七页并解除锁定。</p>
-<p>改变状态页（page05）</p>
-<p><img style="margin-left: 0;" src="http://ogbav6dbm.bkt.clouddn.com/animate1.jpg" width="300" alt="CSDN图标"></p>
-<p>不改变 (page06)</p>
-<p><img style="margin-left: 0;" src="http://ogbav6dbm.bkt.clouddn.com/animate2.jpg" width="300" alt="CSDN图标"></p>
-<p>改变 (page07)</p>
-<p><img style="margin-left: 0;" src="http://ogbav6dbm.bkt.clouddn.com/animate3.jpg" width="300" alt="CSDN图标"></p>
-<p>添加<code>page06</code>的class为 <code>no</code>,<code>page07</code>及以后改变动画的设置为<code>yes</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;swiper-container&quot;&gt;</div><div class="line">  &lt;div class=&quot;swiper-wrapper&quot;&gt;</div><div class="line">  ...</div><div class="line">    &lt;div class=&quot;swiper-slide&quot;&gt;page05&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;swiper-slide no&quot;&gt;page06&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;swiper-slide yes&quot;&gt;page07&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;swiper-slide yes&quot;&gt;page08&lt;/div&gt;</div><div class="line">  ...</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p><code>onSlideChangeStart</code>: swiper从当前slide开始过渡到另一个slide时执行。<br><code>swiper.activeIndex</code>: 返回当前活动块(激活块)的索引。<br><code>swiper.lockSwipeToNext()</code>: 锁定Swiper的向下滑动。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var swiper = new Swiper(&apos;.swiper-container&apos;, &#123;</div><div class="line">...</div><div class="line">onSlideChangeStart: function(swiper)&#123;</div><div class="line">		// 设置滑动到page05和page06时无法向下滑动</div><div class="line">		if(swiper.activeIndex==5 || (swiper.activeIndex==6 &amp;&amp;  $(&quot;.slide06&quot;).css(&quot;display&quot;)!= &quot;none&quot; )) &#123;</div><div class="line">            swiper.lockSwipeToNext();</div><div class="line">        &#125; else &#123;</div><div class="line">            swiper.unlockSwipeToNext();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>点击<code>page05</code>的<code>改变</code>按钮:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#change&quot;).click(function()&#123;</div><div class="line">	 $(&quot;.swiper-wrapper .no&quot;).hide(); //将page06隐藏</div><div class="line">    swiper.update();  //更新swiper</div><div class="line">    swiper.slideNext(); //切换下一页（page07）</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>点击<code>page05</code>的<code>不改变</code>按钮:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#refuse&quot;).click(function()&#123;</div><div class="line">    $(&quot;.swiper-wrapper .no&quot;).show(); //显示page06</div><div class="line">    swiper.update(); //更新swiper</div><div class="line">    swiper.slideNext(); //切换下一页（page06)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>点击<code>page06</code>的改变按钮:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#tochange&quot;).click(function()&#123;</div><div class="line">    $(&quot;.swiper-wrapper .yes&quot;).show(); //page07及以后的动画显示</div><div class="line">    swiper.update() //更新swiper</div><div class="line">    swiper.slideNext(); //切换下一页（page07)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/pushState/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -704,6 +576,134 @@
 <p>2个参数都会选择性的跳过前后部分，start跳过0%，end跳过100%</p>
 <p>step-start在变化过程中，都是以下一帧的显示效果来填充间隔动画，所以0% 到 50%  直接就显示了黄色yellow</p>
 <p>step-end与上面相反，都是以上一帧的显示效果来填充间隔动画，所以0% 到 50% 直接就显示了红色red</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/05/swiper动画/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingli">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/05/swiper动画/" itemprop="url">swiper动画</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-05T12:06:12+08:00">
+                2017-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这次做达人动画主要是用 <code>swiper</code> 做每一页动画之间的切换，其中有一个需求是滑动到<code>page05</code>时如果没有选择“改变”或者是“不改变”,锁定这一页使得无法向下切换到下一页。如果点击“改变”按钮则直接切换到第七页，解除锁定。如果点击“不改变”，切换到下一页（page06），并且锁定该页，点击第六页的“改变”按钮切换到第七页并解除锁定。</p>
+<p>改变状态页（page05）</p>
+<p><img style="margin-left: 0;" src="http://ogbav6dbm.bkt.clouddn.com/animate1.jpg" width="300" alt="CSDN图标"></p>
+<p>不改变 (page06)</p>
+<p><img style="margin-left: 0;" src="http://ogbav6dbm.bkt.clouddn.com/animate2.jpg" width="300" alt="CSDN图标"></p>
+<p>改变 (page07)</p>
+<p><img style="margin-left: 0;" src="http://ogbav6dbm.bkt.clouddn.com/animate3.jpg" width="300" alt="CSDN图标"></p>
+<p>添加<code>page06</code>的class为 <code>no</code>,<code>page07</code>及以后改变动画的设置为<code>yes</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;swiper-container&quot;&gt;</div><div class="line">  &lt;div class=&quot;swiper-wrapper&quot;&gt;</div><div class="line">  ...</div><div class="line">    &lt;div class=&quot;swiper-slide&quot;&gt;page05&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;swiper-slide no&quot;&gt;page06&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;swiper-slide yes&quot;&gt;page07&lt;/div&gt;</div><div class="line">    &lt;div class=&quot;swiper-slide yes&quot;&gt;page08&lt;/div&gt;</div><div class="line">  ...</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p><code>onSlideChangeStart</code>: swiper从当前slide开始过渡到另一个slide时执行。<br><code>swiper.activeIndex</code>: 返回当前活动块(激活块)的索引。<br><code>swiper.lockSwipeToNext()</code>: 锁定Swiper的向下滑动。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var swiper = new Swiper(&apos;.swiper-container&apos;, &#123;</div><div class="line">...</div><div class="line">onSlideChangeStart: function(swiper)&#123;</div><div class="line">		// 设置滑动到page05和page06时无法向下滑动</div><div class="line">		if(swiper.activeIndex==5 || (swiper.activeIndex==6 &amp;&amp;  $(&quot;.slide06&quot;).css(&quot;display&quot;)!= &quot;none&quot; )) &#123;</div><div class="line">            swiper.lockSwipeToNext();</div><div class="line">        &#125; else &#123;</div><div class="line">            swiper.unlockSwipeToNext();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>点击<code>page05</code>的<code>改变</code>按钮:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#change&quot;).click(function()&#123;</div><div class="line">	 $(&quot;.swiper-wrapper .no&quot;).hide(); //将page06隐藏</div><div class="line">    swiper.update();  //更新swiper</div><div class="line">    swiper.slideNext(); //切换下一页（page07）</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>点击<code>page05</code>的<code>不改变</code>按钮:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#refuse&quot;).click(function()&#123;</div><div class="line">    $(&quot;.swiper-wrapper .no&quot;).show(); //显示page06</div><div class="line">    swiper.update(); //更新swiper</div><div class="line">    swiper.slideNext(); //切换下一页（page06)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>点击<code>page06</code>的改变按钮:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$(&quot;#tochange&quot;).click(function()&#123;</div><div class="line">    $(&quot;.swiper-wrapper .yes&quot;).show(); //page07及以后的动画显示</div><div class="line">    swiper.update() //更新swiper</div><div class="line">    swiper.slideNext(); //切换下一页（page07)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
           
         
