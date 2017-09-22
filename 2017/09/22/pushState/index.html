@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/22/pushState/index.html">
 <meta property="og:site_name" content="Lingli">
 <meta property="og:description" content="介绍Ajax可以实现页面的无刷新操作，但是无法改变浏览器的url,使得用户不能进行前进与后退的操作，html5引入了history.pushState()和history.replaceState()这两个方法可以添加和替换浏览器历史记录。 pushStatepushState 类似数组的 Array.push() 方法，在window.history里新增一个历史记录点，此时地址栏虽然修改,但并">
-<meta property="og:updated_time" content="2017-09-22T15:21:07.000Z">
+<meta property="og:updated_time" content="2017-09-22T15:37:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pushState">
 <meta name="twitter:description" content="介绍Ajax可以实现页面的无刷新操作，但是无法改变浏览器的url,使得用户不能进行前进与后退的操作，html5引入了history.pushState()和history.replaceState()这两个方法可以添加和替换浏览器历史记录。 pushStatepushState 类似数组的 Array.push() 方法，在window.history里新增一个历史记录点，此时地址栏虽然修改,但并">
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -214,7 +214,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -284,7 +284,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-22T00:00:00+08:00">
                 2017-09-22
@@ -332,6 +332,12 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var stateObj = &#123; foo: &apos;bar&apos; &#125;;</div><div class="line">history.replaceState(stateObj, null, &apos;2.html&apos;);</div></pre></td></tr></table></figure>
 <p>地址栏会将 m.babytree.com/1.html 替换成 m.babytree.com/2.html，点击浏览器<code>后退</code>再点击<code>前进</code>按钮，地址栏显示 m.babytree.com/2.html。</p>
 <p>window.onpopstate<br>用户点击浏览器历史前进后退按钮，并且页面无刷的时候（由于使用pushState修改了history）会触发popstate事件，事件发生时浏览器会从history中取出URL和对应的state对象替换当前的URL和history.state。</p>
+<p>需要注意的是调用history.pushState()或history.replaceState()不会触发popstate事件。只有在做出浏览器动作时，才会触发该事件，如用户点击浏览器的回退按钮（或者在Javascript代码中调用history.back()）</p>
+<p>不同的浏览器在加载页面时处理popstate事件的形式存在差异。页面加载时Chrome和Safari通常会触发popstate事件，但Firefox则不会。</p>
+<p>当浏览器触发返回和前进时触发： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">window.onpopstate = function(event) &#123;</div><div class="line">   //做一些操作</div><div class="line">   event.state; //  当前历史记录条目的状态 </div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&apos;popstate&apos;, function(event) &#123;</div><div class="line">  //做一些操作</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -431,10 +437,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -455,7 +461,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -468,7 +474,7 @@
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">8</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               
             </div>
           
@@ -534,7 +540,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
