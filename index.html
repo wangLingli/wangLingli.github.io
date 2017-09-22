@@ -201,7 +201,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -211,7 +211,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -254,6 +254,128 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/pushState/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lingli">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/09/22/pushState/" itemprop="url">pushState</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-22T00:00:00+08:00">
+                2017-09-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Ajax可以实现页面的无刷新操作，但是无法改变浏览器的url,使得用户不能进行前进与后退的操作，html5引入了history.pushState()和history.replaceState()这两个方法可以添加和替换浏览器历史记录。</p>
+<h2 id="pushState"><a href="#pushState" class="headerlink" title="pushState"></a>pushState</h2><p>pushState 类似数组的 Array.push() 方法，在window.history里新增一个历史记录点，此时地址栏虽然修改,但并不触发网页跳转。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">history.pushState(state, title, url);</div><div class="line">// state：与要跳转到的URL对应的状态信息,存储JSON字符串，可以用在popstate事件中</div><div class="line">// title：标题的名称，有些浏览器不支持或者忽略这个参数，最好用null代替</div><div class="line">// url: 浏览器不会检查url是否存在，只改变url，url必须同域，不能跨域</div></pre></td></tr></table></figure>
+<p>当前网址是 m.babytree.com/1.html，我们使用pushState方法在浏览记录中添加一个新记录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var stateObj = &#123; foo: &apos;bar&apos; &#125;;</div><div class="line">history.pushState(stateObj, null, &apos;2.html&apos;);</div></pre></td></tr></table></figure>
+<p>添加上面这个新记录后，浏览器地址栏立刻显示m.babytree.com/2.html，但并不会跳转到2.html，甚至也不会检查2.html是否存在，它只是成为浏览历史中的最新记录，点击后退和前进按钮，显示的内容还是1.html,当访问另一个地址再返回时则显示2.html内容。</p>
+<p>history.replaceState 用新的state和URL替换当前，用法和 pushState相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">history.replaceState(state,title,url);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var stateObj = &#123; foo: &apos;bar&apos; &#125;;</div><div class="line">history.replaceState(stateObj, null, &apos;2.html&apos;);</div></pre></td></tr></table></figure>
+<p>地址栏会将 m.babytree.com/1.html 替换成 m.babytree.com/2.html，点击浏览器<code>后退</code>再点击<code>前进</code>按钮，地址栏显示 m.babytree.com/2.html。</p>
+<p>window.onpopstate<br>用户点击浏览器历史前进后退按钮，并且页面无刷的时候（由于使用pushState修改了history）会触发popstate事件，事件发生时浏览器会从history中取出URL和对应的state对象替换当前的URL和history.state。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/25/swiper动画/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -283,7 +405,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-25T12:06:12+08:00">
                 2017-08-25
@@ -382,119 +504,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/18/pushState/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Lingli">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/18/pushState/" itemprop="url">pushState</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-18T12:48:50+08:00">
-                2017-08-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>html5引入了history.pushState()和history.replaceState()这两个方法可以存储当前历史记录点、替换当前历史记录点，实现页面无刷新改变当前url。Ajax可以实现页面的无刷新操作，但是无法前进与后退，使用pushState往浏览器history中添加一个地址</p>
-<h2 id="pushState"><a href="#pushState" class="headerlink" title="pushState"></a>pushState</h2><p>pushState 是人工插入历史记录和修改地址栏,此时地址栏虽然修改,但并不触发网页跳转。存储的方式类似于数组的入栈（Array.push()），在window.history里新增一个历史记录点，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"> // 当前的url为：http://qianduanblog.com/index.html</div><div class="line">var json=&#123;time:new Date().getTime()&#125;;</div><div class="line"> // @状态对象：记录历史记录点的额外对象，可以为空</div><div class="line">// @页面标题：目前所有浏览器都不支持</div><div class="line"> // @可选的url：浏览器不会检查url是否存在，只改变url，url必须同域，不能跨域</div><div class="line">window.history.pushState(json,&quot;&quot;,&quot;http://qianduanblog.com/post-1.html&quot;);</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/11/帧动画/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -524,7 +533,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-11T21:49:50+08:00">
                 2017-08-11
@@ -665,7 +674,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-04T23:33:50+08:00">
                 2017-08-04
@@ -789,7 +798,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-01T09:31:52+08:00">
                 2017-08-01
@@ -1010,7 +1019,7 @@ Sass-作用域编译后
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-28T14:12:15+08:00">
                 2017-07-28
@@ -1171,7 +1180,7 @@ Sass-作用域编译后
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-18T22:31:59+08:00">
                 2017-07-18
@@ -1301,7 +1310,7 @@ Sass-作用域编译后
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-14T10:28:59+08:00">
                 2017-07-14
@@ -1433,7 +1442,7 @@ Sass-作用域编译后
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T12:48:59+08:00">
                 2017-06-30
@@ -1574,7 +1583,7 @@ Sass-作用域编译后
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-16T19:27:28+08:00">
                 2017-06-16
@@ -1710,7 +1719,7 @@ Sass-作用域编译后
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
                 <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1723,7 +1732,7 @@ Sass-作用域编译后
             <div class="site-state-item site-state-tags">
               
                 <span class="site-state-item-count">8</span>
-                <span class="site-state-item-name">Tags</span>
+                <span class="site-state-item-name">tags</span>
               
             </div>
           
@@ -1773,7 +1782,7 @@ Sass-作用域编译后
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">

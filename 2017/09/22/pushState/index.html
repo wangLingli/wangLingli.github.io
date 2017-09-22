@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="js," />
+  <meta name="keywords" content="pushState、popstate," />
 
 
 
@@ -93,20 +93,17 @@
 
 
 
-<meta name="description" content="最近看了一个用swiper.js做的活动页项目，当滑到第六页点击“了解详情”按钮，可以使用指定相应的url跳转到详情页，那么当点击详情页中“返回”按钮，怎么返回到swiper第六页的活动页面呢？   window.location.hreflocation是javascript里边管理地址栏的内置对象,window.location.href可以获取到完整的url，比如window.locatio">
-<meta name="keywords" content="js">
+<meta name="description" content="介绍Ajax可以实现页面的无刷新操作，但是无法改变浏览器的url,使得用户不能进行前进与后退的操作，html5引入了history.pushState()和history.replaceState()这两个方法可以添加和替换浏览器历史记录。 pushStatepushState 类似数组的 Array.push() 方法，在window.history里新增一个历史记录点，此时地址栏虽然修改,但并">
+<meta name="keywords" content="pushState、popstate">
 <meta property="og:type" content="article">
-<meta property="og:title" content="location.hash">
-<meta property="og:url" content="http://yoursite.com/2017/07/18/location-hash/index.html">
+<meta property="og:title" content="pushState">
+<meta property="og:url" content="http://yoursite.com/2017/09/22/pushState/index.html">
 <meta property="og:site_name" content="Lingli">
-<meta property="og:description" content="最近看了一个用swiper.js做的活动页项目，当滑到第六页点击“了解详情”按钮，可以使用指定相应的url跳转到详情页，那么当点击详情页中“返回”按钮，怎么返回到swiper第六页的活动页面呢？   window.location.hreflocation是javascript里边管理地址栏的内置对象,window.location.href可以获取到完整的url，比如window.locatio">
-<meta property="og:image" content="http://ogbav6dbm.bkt.clouddn.com/hash1.png">
-<meta property="og:image" content="http://ogbav6dbm.bkt.clouddn.com/hash2.png">
-<meta property="og:updated_time" content="2017-07-21T09:56:15.000Z">
+<meta property="og:description" content="介绍Ajax可以实现页面的无刷新操作，但是无法改变浏览器的url,使得用户不能进行前进与后退的操作，html5引入了history.pushState()和history.replaceState()这两个方法可以添加和替换浏览器历史记录。 pushStatepushState 类似数组的 Array.push() 方法，在window.history里新增一个历史记录点，此时地址栏虽然修改,但并">
+<meta property="og:updated_time" content="2017-09-22T15:21:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="location.hash">
-<meta name="twitter:description" content="最近看了一个用swiper.js做的活动页项目，当滑到第六页点击“了解详情”按钮，可以使用指定相应的url跳转到详情页，那么当点击详情页中“返回”按钮，怎么返回到swiper第六页的活动页面呢？   window.location.hreflocation是javascript里边管理地址栏的内置对象,window.location.href可以获取到完整的url，比如window.locatio">
-<meta name="twitter:image" content="http://ogbav6dbm.bkt.clouddn.com/hash1.png">
+<meta name="twitter:title" content="pushState">
+<meta name="twitter:description" content="介绍Ajax可以实现页面的无刷新操作，但是无法改变浏览器的url,使得用户不能进行前进与后退的操作，html5引入了history.pushState()和history.replaceState()这两个方法可以添加和替换浏览器历史记录。 pushStatepushState 类似数组的 Array.push() 方法，在window.history里新增一个历史记录点，此时地址栏虽然修改,但并">
 
 
 
@@ -134,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/18/location-hash/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/22/pushState/"/>
 
 
 
 
 
-  <title>location.hash | Lingli</title>
+  <title>pushState | Lingli</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -260,7 +257,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/18/location-hash/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/22/pushState/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -277,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">location.hash</h1>
+          <h1 class="post-title" itemprop="name headline">pushState</h1>
         
 
         <div class="post-meta">
@@ -289,8 +286,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-18T22:31:59+08:00">
-                2017-07-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-22T00:00:00+08:00">
+                2017-09-22
               </time>
             
 
@@ -324,25 +321,17 @@
       
 
       
-        <p>最近看了一个用swiper.js做的活动页项目，当滑到第六页点击“了解详情”按钮，可以使用<a href=""></a>指定相应的url跳转到详情页，那么当点击详情页中“返回”按钮，怎么返回到swiper第六页的活动页面呢？</p>
-<div style="overflow:hidden;"><br><img src="http://ogbav6dbm.bkt.clouddn.com/hash1.png" style="width:250px;"><img src="http://ogbav6dbm.bkt.clouddn.com/hash2.png" style="width:250px;"><br></div>
-
-<h2 id="window-location-href"><a href="#window-location-href" class="headerlink" title="window.location.href"></a>window.location.href</h2><p>location是javascript里边管理地址栏的内置对象,<code>window.location.href</code>可以获取到完整的url，比如window.location.href=”www.babytree.com”表示的是重新定向，页面跳转到新的页面。</p>
-<h2 id="window-location-hash"><a href="#window-location-hash" class="headerlink" title="window.location.hash"></a>window.location.hash</h2><p>“#”代表网页中的一个位置,其右面的字符，就是该位置的标识符。比如，</p>
-<pre><code>http://www.babytree.com#tool
-</code></pre><p>就代表网页的tool位置。浏览器读取这个URL后，会自动将tool位置滚动至可视区域。</p>
-<p>为网页位置指定标识符，有两个方法。一是使用锚点，比如<code>&lt;a name=&quot;tool&quot;&gt;&lt;/a&gt;</code>，二是使用id属性，比如<code>&lt;div id=&quot;tool&quot; &gt;</code>。</p>
-<p>获取的是页面的锚链接，相比如href,通过window.location.hash并不会跳转到新的链接，只会在当前链接里面改变锚链。例如<code>&lt;a href=&quot;www.babytree.com#tool&quot;&gt;</code>通过window.location.hash得不到完整的链接（URL），仅得到 #tool.</p>
-<p>window.location.hash这个属性可读可写。读取时，可以用来判断网页状态是否改变；写入时，则会在不重载网页的前提下，创造一条访问历史记录。</p>
-<p>每一次改变#后的部分，都会在浏览器的访问历史中增加一个记录，使用”后退”按钮，就可以回到上一个位置。这对于ajax应用程序特别有用，可以用不同的#值，表示不同的访问状态，然后向用户给出可以访问某个状态的链接。</p>
-<p>值得注意的是，上述规则对IE 6和IE 7不成立，它们不会因为#的改变而增加历史记录。</p>
-<h2 id="实现步骤"><a href="#实现步骤" class="headerlink" title="实现步骤"></a>实现步骤</h2><p>给返回按钮设置带有标签值的a链接，<code>&lt;a href=&quot;/sakykids#referno5&quot;&gt;&lt;/a&gt;</code></p>
-<p>获取页面锚链接：</p>
-<pre><code>var hash = window.location.hash;  // #referno5
-</code></pre><p>获取swiper第几页序号：</p>
-<pre><code>var referno = /referno/.test(hash)?hash.split(&apos;referno&apos;)[1]:0; //5
-</code></pre><p>通过<code>initialSlide</code>设定swiper初始化索引：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var mySwiper = $(&apos;.slidercontain&apos;).swiper(&#123;</div><div class="line">	initialSlide:referno,</div><div class="line">	......</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Ajax可以实现页面的无刷新操作，但是无法改变浏览器的url,使得用户不能进行前进与后退的操作，html5引入了history.pushState()和history.replaceState()这两个方法可以添加和替换浏览器历史记录。</p>
+<h2 id="pushState"><a href="#pushState" class="headerlink" title="pushState"></a>pushState</h2><p>pushState 类似数组的 Array.push() 方法，在window.history里新增一个历史记录点，此时地址栏虽然修改,但并不触发网页跳转。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">history.pushState(state, title, url);</div><div class="line">// state：与要跳转到的URL对应的状态信息,存储JSON字符串，可以用在popstate事件中</div><div class="line">// title：标题的名称，有些浏览器不支持或者忽略这个参数，最好用null代替</div><div class="line">// url: 浏览器不会检查url是否存在，只改变url，url必须同域，不能跨域</div></pre></td></tr></table></figure>
+<p>当前网址是 m.babytree.com/1.html，我们使用pushState方法在浏览记录中添加一个新记录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var stateObj = &#123; foo: &apos;bar&apos; &#125;;</div><div class="line">history.pushState(stateObj, null, &apos;2.html&apos;);</div></pre></td></tr></table></figure>
+<p>添加上面这个新记录后，浏览器地址栏立刻显示m.babytree.com/2.html，但并不会跳转到2.html，甚至也不会检查2.html是否存在，它只是成为浏览历史中的最新记录，点击后退和前进按钮，显示的内容还是1.html,当访问另一个地址再返回时则显示2.html内容。</p>
+<p>history.replaceState 用新的state和URL替换当前，用法和 pushState相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">history.replaceState(state,title,url);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var stateObj = &#123; foo: &apos;bar&apos; &#125;;</div><div class="line">history.replaceState(stateObj, null, &apos;2.html&apos;);</div></pre></td></tr></table></figure>
+<p>地址栏会将 m.babytree.com/1.html 替换成 m.babytree.com/2.html，点击浏览器<code>后退</code>再点击<code>前进</code>按钮，地址栏显示 m.babytree.com/2.html。</p>
+<p>window.onpopstate<br>用户点击浏览器历史前进后退按钮，并且页面无刷的时候（由于使用pushState修改了history）会触发popstate事件，事件发生时浏览器会从history中取出URL和对应的state对象替换当前的URL和history.state。</p>
 
       
     </div>
@@ -372,7 +361,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/js/" rel="tag"># js</a>
+            <a href="/tags/pushState、popstate/" rel="tag"># pushState、popstate</a>
           
         </div>
       
@@ -385,8 +374,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/14/vue-小技巧/" rel="next" title="vue-小技巧">
-                <i class="fa fa-chevron-left"></i> vue-小技巧
+              <a href="/2017/08/25/swiper动画/" rel="next" title="swiper动画">
+                <i class="fa fa-chevron-left"></i> swiper动画
               </a>
             
           </div>
@@ -394,10 +383,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/28/ES6/" rel="prev" title="ES6">
-                ES6 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -517,7 +502,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#window-location-href"><span class="nav-number">1.</span> <span class="nav-text">window.location.href</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#window-location-hash"><span class="nav-number">2.</span> <span class="nav-text">window.location.hash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现步骤"><span class="nav-number">3.</span> <span class="nav-text">实现步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pushState"><span class="nav-number">2.</span> <span class="nav-text">pushState</span></a></li></ol></div>
             
 
           </div>
