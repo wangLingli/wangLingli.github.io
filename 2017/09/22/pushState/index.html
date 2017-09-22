@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/09/22/pushState/index.html">
 <meta property="og:site_name" content="Lingli">
 <meta property="og:description" content="介绍Ajax可以实现页面的无刷新操作，但是无法改变浏览器的url,使得用户不能进行前进与后退的操作，html5引入了history.pushState()和history.replaceState()这两个方法可以添加和替换浏览器历史记录。 pushStatepushState 类似数组的 Array.push() 方法，在window.history里新增一个历史记录点，此时地址栏虽然修改,但并">
-<meta property="og:updated_time" content="2017-09-22T15:37:08.000Z">
+<meta property="og:updated_time" content="2017-09-22T15:40:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pushState">
 <meta name="twitter:description" content="介绍Ajax可以实现页面的无刷新操作，但是无法改变浏览器的url,使得用户不能进行前进与后退的操作，html5引入了history.pushState()和history.replaceState()这两个方法可以添加和替换浏览器历史记录。 pushStatepushState 类似数组的 Array.push() 方法，在window.history里新增一个历史记录点，此时地址栏虽然修改,但并">
@@ -327,11 +327,10 @@
 <p>当前网址是 m.babytree.com/1.html，我们使用pushState方法在浏览记录中添加一个新记录。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var stateObj = &#123; foo: &apos;bar&apos; &#125;;</div><div class="line">history.pushState(stateObj, null, &apos;2.html&apos;);</div></pre></td></tr></table></figure>
 <p>添加上面这个新记录后，浏览器地址栏立刻显示m.babytree.com/2.html，但并不会跳转到2.html，甚至也不会检查2.html是否存在，它只是成为浏览历史中的最新记录，点击后退和前进按钮，显示的内容还是1.html,当访问另一个地址再返回时则显示2.html内容。</p>
-<p>history.replaceState 用新的state和URL替换当前，用法和 pushState相同</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">history.replaceState(state,title,url);</div></pre></td></tr></table></figure>
+<h2 id="history-replaceState-用新的state和URL替换当前，用法和-pushState相同"><a href="#history-replaceState-用新的state和URL替换当前，用法和-pushState相同" class="headerlink" title="history.replaceState 用新的state和URL替换当前，用法和 pushState相同"></a>history.replaceState 用新的state和URL替换当前，用法和 pushState相同</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">history.replaceState(state,title,url);</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var stateObj = &#123; foo: &apos;bar&apos; &#125;;</div><div class="line">history.replaceState(stateObj, null, &apos;2.html&apos;);</div></pre></td></tr></table></figure>
 <p>地址栏会将 m.babytree.com/1.html 替换成 m.babytree.com/2.html，点击浏览器<code>后退</code>再点击<code>前进</code>按钮，地址栏显示 m.babytree.com/2.html。</p>
-<p>window.onpopstate<br>用户点击浏览器历史前进后退按钮，并且页面无刷的时候（由于使用pushState修改了history）会触发popstate事件，事件发生时浏览器会从history中取出URL和对应的state对象替换当前的URL和history.state。</p>
+<h2 id="window-onpopstate"><a href="#window-onpopstate" class="headerlink" title="window.onpopstate"></a>window.onpopstate</h2><p>用户点击浏览器历史前进后退按钮，并且页面无刷的时候（由于使用pushState修改了history）会触发popstate事件，事件发生时浏览器会从history中取出URL和对应的state对象替换当前的URL和history.state。</p>
 <p>需要注意的是调用history.pushState()或history.replaceState()不会触发popstate事件。只有在做出浏览器动作时，才会触发该事件，如用户点击浏览器的回退按钮（或者在Javascript代码中调用history.back()）</p>
 <p>不同的浏览器在加载页面时处理popstate事件的形式存在差异。页面加载时Chrome和Safari通常会触发popstate事件，但Firefox则不会。</p>
 <p>当浏览器触发返回和前进时触发： </p>
@@ -508,7 +507,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pushState"><span class="nav-number">2.</span> <span class="nav-text">pushState</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pushState"><span class="nav-number">2.</span> <span class="nav-text">pushState</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#history-replaceState-用新的state和URL替换当前，用法和-pushState相同"><span class="nav-number">3.</span> <span class="nav-text">history.replaceState 用新的state和URL替换当前，用法和 pushState相同</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#window-onpopstate"><span class="nav-number">4.</span> <span class="nav-text">window.onpopstate</span></a></li></ol></div>
             
 
           </div>
